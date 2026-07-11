@@ -14,7 +14,15 @@
       "Bash(dir \"e:\\\\Dropbox\\\\FAUSTO\\\\SVILUPPI\\\\MSX\\\\CODE\\\\C\\\\MSXgl\\\\projects\\\\soccerlgMSX2\\\\bin\" /B)",
       "Bash(Select-String -Path \"e:\\\\Dropbox\\\\FAUSTO\\\\SVILUPPI\\\\MSX\\\\CODE\\\\C\\\\MSXgl\\\\projects\\\\soccerlgMSX2\\\\out\\\\soccerlg.map\" -Pattern \"7FF[EF0-9]|7ff[ef0-9]\")",
       "Bash(Select-Object -First 20)",
-      "Bash(Format-Table -AutoSize)"
+      "Bash(Format-Table -AutoSize)",
+      "Bash(./build.bat)",
+      "Bash(\"E:\\\\Dropbox\\\\FAUSTO\\\\SVILUPPI\\\\MSX\\\\CODE\\\\C\\\\MSXgl\\\\tools/sdcc/bin/sdcc\" -c -mz80 -DTARGET=TARGET_ROM_YAMANOOTO -DROM_SIZE=8192 -DMSX_VERSION=MSX_2 -I. -I\"E:\\\\Dropbox\\\\FAUSTO\\\\SVILUPPI\\\\MSX\\\\CODE\\\\C\\\\MSXgl\\\\engine/src\" -I\"E:\\\\Dropbox\\\\FAUSTO\\\\SVILUPPI\\\\MSX\\\\CODE\\\\C\\\\MSXgl\\\\engine/content\" -I\"E:\\\\Dropbox\\\\FAUSTO\\\\SVILUPPI\\\\MSX\\\\CODE\\\\C\\\\MSXgl\\\\tools/\" --opt-code-speed -DAPPSIGN ./soccerlg.c -o out/)",
+      "PowerShell(& \"E:\\\\Dropbox\\\\FAUSTO\\\\SVILUPPI\\\\MSX\\\\CODE\\\\C\\\\MSXgl\\\\tools\\\\sdcc\\\\bin\\\\sdcc.exe\" -c -mz80 \"-DTARGET=TARGET_ROM_YAMANOOTO\" \"-DROM_SIZE=8192\" \"-DMSX_VERSION=MSX_2\" \"-IE:\\\\Dropbox\\\\FAUSTO\\\\SVILUPPI\\\\MSX\\\\CODE\\\\C\\\\MSXgl\\\\projects\\\\soccerlgMSX2\\\\\" \"-IE:\\\\Dropbox\\\\FAUSTO\\\\SVILUPPI\\\\MSX\\\\CODE\\\\C\\\\MSXgl\\\\engine\\\\src\" \"-IE:\\\\Dropbox\\\\FAUSTO\\\\SVILUPPI\\\\MSX\\\\CODE\\\\C\\\\MSXgl\\\\engine\\\\content\" \"-IE:\\\\Dropbox\\\\FAUSTO\\\\SVILUPPI\\\\MSX\\\\CODE\\\\C\\\\MSXgl\\\\tools\\\\\" --opt-code-speed -DAPPSIGN \"E:\\\\Dropbox\\\\FAUSTO\\\\SVILUPPI\\\\MSX\\\\CODE\\\\C\\\\MSXgl\\\\projects\\\\soccerlgMSX2\\\\soccerlg.c\" -o \"E:\\\\Dropbox\\\\FAUSTO\\\\SVILUPPI\\\\MSX\\\\CODE\\\\C\\\\MSXgl\\\\projects\\\\soccerlgMSX2\\\\out\\\\\" 2>&1)",
+      "PowerShell(Remove-Item \"E:\\\\Dropbox\\\\FAUSTO\\\\SVILUPPI\\\\MSX\\\\CODE\\\\C\\\\MSXgl\\\\projects\\\\soccerlgMSX2\\\\out\\\\soccerlg.rel\" -ErrorAction SilentlyContinue -Confirm:$false)",
+      "PowerShell(Remove-Item \"E:\\\\Dropbox\\\\FAUSTO\\\\SVILUPPI\\\\MSX\\\\CODE\\\\C\\\\MSXgl\\\\projects\\\\soccerlgMSX2\\\\out\\\\soccerlg.lst\" -ErrorAction SilentlyContinue -Confirm:$false)",
+      "PowerShell(Remove-Item \"E:\\\\Dropbox\\\\FAUSTO\\\\SVILUPPI\\\\MSX\\\\CODE\\\\C\\\\MSXgl\\\\projects\\\\soccerlgMSX2\\\\out\\\\soccerlg.sym\" -ErrorAction SilentlyContinue -Confirm:$false)",
+      "Bash(cmd //c build.bat)",
+      "PowerShell(& \".\\\\build.bat\" 2>&1)"
     ]
   }
 }

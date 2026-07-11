@@ -52,6 +52,11 @@ void UpdateGameState(u8* game_state, u8* wait_secs, u8* start_sec, u16 target_ly
 		// --- TELECAMERA E LIMITI ---
 		CallFnc_VOID(SEG_FIELD, UpdateFieldCamera);
 		CallFnc_VOID_3PTR(SEG_FIELD, CheckFieldBoundaries, game_state, wait_secs, start_sec);
+		// Se un goal (o altro fallo) è appena stato rilevato, non proseguire: altrimenti
+		// UpdateGameState_GlobalChecks rivaluterebbe presa portiere/fuorigioco sulla palla
+		// ancora ferma in porta, sovrascrivendo lo stato 9 e impedendo il reset della palla
+		// (loop infinito KICKOFF <-> IN GOAL sulle azioni rapide da rimessa).
+		if (*game_state != 3) return;
 
 		// --- AGGIORNAMENTO FRECCE ORIZZONTALI ---
 		g_h_arrow_x += g_h_arrow_dir;
